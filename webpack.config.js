@@ -1,27 +1,32 @@
-const path = require('path'); 
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', 
 
   output: {
-    filename: 'bundle.js', 
-    path: path.resolve(__dirname, 'dist'), 
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,  
   },
 
   module: {
     rules: [
       {
-        test: /\.css$/, 
-        use: ['style-loader', 'css-loader'], 
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.scss$/, // для SCSS файлов
-        use: ['style-loader', 'css-loader', 'sass-loader'], // применяем лоадеры
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i, 
+        type: 'asset/resource',
       },
     ],
   },
-  
+
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -30,10 +35,10 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'), 
+      directory: path.join(__dirname, 'dist'),
     },
-    open: true, 
+    open: true,
   },
 
-  mode: 'development', 
+  mode: 'development',
 };

@@ -1,0 +1,49 @@
+$gradient: linear-gradient(#e51726, #d4208c);
+$gradient-text: -webkit-linear-gradient(#e51726, #d4208c);
+$colour-text: -webkit-linear-gradient(#e51726, #d4208c);
+
+body {
+    font-family: "Open Sans";
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    font-size: 77px;
+    font-weight: 800;
+    background: $gradient-text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ol {
+    counter-reset: list-counter;
+}
+
+ol li {
+    position: relative;
+    list-style: none;
+    font-size: 38px;
+    margin: 20px 0;
+    color: $colour-text;
+    font-weight: 600;
+}
+
+ol li::before {
+    counter-increment: list-counter;
+    content: counter(list-counter) ". ";
+    font-size: 55px;
+    background: linear-gradient(90deg, #e51726, #d4208c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    font-weight: 800;
+}
