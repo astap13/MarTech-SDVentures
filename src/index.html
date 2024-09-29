@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300" rel="stylesheet" type="text/css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>Test task</title>
   </head>
   <body>
@@ -15,10 +19,29 @@
         <h2 class="title">How to Participate</h2>
         <ol>
           <li>Subscribe to our News</li>
-          <li><button class="sign-in-btn">SIGN UP</button></li>
+          <li>
+            <button id="openModalBtn" class="sign-in-btn">SIGN UP</button>
+          </li>
           <li>Check your email inbox</li>
           <li>Wait till September 22</li>
         </ol>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <form id="signupForm">
+          <span id="closeModalBtn" class="close">&times;</span>
+          <h2>
+            To register, enter the mail to which our news is sent and set your
+            password
+          </h2>
+
+          <input placeholder="Example@email.com" type="email" id="email" name="email" required />
+
+          <input placeholder="Password" type="password" id="password" name="password" required />
+          <button type="submit">Submit</button>
+        </form>
+        <div id="thankYouMessage" class="hidden">Thank You!</div>
       </div>
     </div>
   </body>
