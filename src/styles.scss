@@ -1,6 +1,5 @@
 $gradient: linear-gradient(10deg, #e51726, #d4208c);
 $gradient-text: -webkit-linear-gradient(#e51726, #d4208c);
-$colour-text: -webkit-linear-gradient(#e51726, #d4208c);
 
 body {
     font-family: "Open Sans";
@@ -49,7 +48,7 @@ ol li {
     list-style: none;
     font-size: 38px;
     margin: 20px 0;
-    color: $colour-text;
+    color: $gradient-text;
     font-weight: 600;
 }
 
