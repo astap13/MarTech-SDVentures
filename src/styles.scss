@@ -12,6 +12,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .title {
@@ -20,6 +21,11 @@ body {
     background: $gradient-text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.avatar-img {
+    width: 729px;
+    height: 690px;
 }
 
 button {
@@ -66,12 +72,13 @@ ol li::before {
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.718);
     width: 100%;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     justify-content: center;
     top: 0px;
     left: 0px;
-    
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
@@ -83,7 +90,6 @@ ol li::before {
     text-align: center;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
     position: relative;
-
 }
 
 .signupForm {
@@ -97,8 +103,8 @@ ol li::before {
 }
 
 .input-container {
-    position: relative; 
-    width: 100%; 
+    position: relative;
+    width: 100%;
 }
 
 input[type="email"],
@@ -110,7 +116,7 @@ input[type="password"] {
     padding: 1em;
     margin-top: 30px;
     margin-bottom: 10px;
-    padding-right: 30px; 
+    padding-right: 30px;
 }
 
 input[type="email"]::placeholder,
@@ -124,7 +130,7 @@ input[type="password"]::placeholder {
 
 input[type="email"].input-error,
 input[type="password"].input-error {
-    border-bottom: 1px solid #e51726; 
+    border-bottom: 1px solid #e51726;
 }
 
 .emailError,
@@ -134,16 +140,16 @@ input[type="password"].input-error {
 
 .error-icon {
     position: absolute;
-    right: 10px; 
+    right: 10px;
     top: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     width: 20px;
     height: 20px;
 }
 
 .close {
     position: absolute;
-    top: 20px; 
+    top: 20px;
     right: 40px;
     font-size: 80px;
     cursor: pointer;
@@ -154,4 +160,10 @@ input[type="password"].input-error {
 
 .hidden {
     display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    ol {
+        margin-left: 10%;
+    }
 }
