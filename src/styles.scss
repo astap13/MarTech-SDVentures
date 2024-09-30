@@ -61,12 +61,12 @@ ol li::before {
 }
 
 .modal {
-    display: flex;
+    display: none;
     position: fixed;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.718);
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
     align-items: center;
     justify-content: center;
     top: 0px;
@@ -82,14 +82,19 @@ ol li::before {
     text-align: center;
 }
 
-#signupForm {
+.signupForm {
     display: flex;
     flex-direction: column;
     max-width: 620px;
     margin: 0 auto;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     height: 100%;
+}
+
+.input-container {
+    position: relative; 
+    width: 100%; 
 }
 
 input[type="email"],
@@ -97,21 +102,40 @@ input[type="password"] {
     border: none;
     outline: none;
     width: 100%;
-    border-bottom: 1px solid #3A3A3A;
+    border-bottom: 1px solid #3a3a3a;
     padding: 1em;
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-right: 30px; 
 }
 
 input[type="email"]::placeholder,
 input[type="password"]::placeholder {
-    color: #B3B3B3; 
-    opacity: 1; 
+    color: #b3b3b3;
+    opacity: 1;
     text-align: center;
     font-size: 18px;
     font-weight: 400;
 }
 
+input[type="email"].input-error,
+input[type="password"].input-error {
+    border-bottom: 1px solid #e51726; 
+}
+
+.emailError,
+.passwordError {
+    color: #e51726;
+}
+
+.error-icon {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%); 
+    width: 20px;
+    height: 20px;
+}
 
 .close {
     font-size: 80px;

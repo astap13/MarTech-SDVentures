@@ -29,19 +29,46 @@
     </div>
     <div id="modal" class="modal">
       <div class="modal-content">
-        <form id="signupForm">
+        <form id="signupForm" class="signupForm">
           <span id="closeModalBtn" class="close">&times;</span>
           <h2>
             To register, enter the mail to which our news is sent and set your
             password
           </h2>
+          <div class="input-container">
+            <input
+              id="email-input"
+              placeholder="Example@email.com"
+              type="email"
+              name="email"
+              required
+            />
+            <img alt="Error" class="error-icon hidden" id="emailErrorIcon" />
+          </div>
+          <p id="emailError" class="emailError hidden">
+            Please enter a valid e-mail
+          </p>
 
-          <input placeholder="Example@email.com" type="email" id="email" name="email" required />
+          <div class="input-container">
+            <input
+              id="password-input"
+              placeholder="Password"
+              type="password"
+              name="password"
+              required
+            />
+            <img alt="Error" class="error-icon hidden" id="passwordErrorIcon" />
+          </div>
+          <p id="passwordError" class="passwordError hidden">
+            Password must be at least 8 characters
+          </p>
 
-          <input placeholder="Password" type="password" id="password" name="password" required />
           <button type="submit">Submit</button>
         </form>
-        <div id="thankYouMessage" class="hidden">Thank You!</div>
+        <div id="thankYouMessage" class="hidden">
+          <h2 class="title">Thank You!</h2>
+          <h2>To complete registration, please check your e-mail</h2>
+        </div>
       </div>
     </div>
   </body>
