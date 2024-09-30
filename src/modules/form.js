@@ -1,7 +1,12 @@
-import { registerUser } from "./api.js";
-
+import {
+  registerUser,
+  authenticateUser,
+  checkAndRedirectWithToken,
+} from "./api.js";
 import emailErrorIcon from "../assets/Vector.svg";
 import passwordErrorIcon from "../assets/Vector.svg";
+
+checkAndRedirectWithToken();
 
 document.getElementById("emailErrorIcon").src = emailErrorIcon;
 document.getElementById("passwordErrorIcon").src = passwordErrorIcon;
@@ -9,8 +14,8 @@ document.getElementById("passwordErrorIcon").src = passwordErrorIcon;
 export async function handleFormSubmit(event) {
   event.preventDefault();
 
-  const email = document.getElementById("email-input").value; 
-  const password = document.getElementById("password-input").value; 
+  const email = document.getElementById("email-input").value;
+  const password = document.getElementById("password-input").value;
 
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
@@ -29,7 +34,7 @@ export async function handleFormSubmit(event) {
   let isValid = true;
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
   if (!emailPattern.test(email)) {
     emailError.classList.remove("hidden");
     emailErrorIcon.classList.remove("hidden");
@@ -45,12 +50,21 @@ export async function handleFormSubmit(event) {
   }
 
   if (isValid) {
-    const result = await registerUser(email, password);
+    const authResult = await authenticateUser(email, password);
 
-    if (result.success) {
-      displayThankYouMessage();
+    if (authResult.success) {
+      window.location.href = `https://www.dating.com/people/#token=${authResult.token}`;
     } else {
-      alert("Регистрация не удалась: " + result.error);
+      const registerResult = await registerUser(email, password);
+
+      if (registerResult.success) {
+        displayThankYouMessage();
+        setTimeout(() => {
+          window.location.href = `https://www.dating.com/people/#token=${registerResult.token}`;
+        }, 2000);
+      } else {
+        alert("Registration failed: " + registerResult.error);
+      }
     }
   }
 }
