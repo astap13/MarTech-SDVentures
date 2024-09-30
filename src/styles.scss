@@ -71,6 +71,7 @@ ol li::before {
     justify-content: center;
     top: 0px;
     left: 0px;
+    
 }
 
 .modal-content {
@@ -80,6 +81,9 @@ ol li::before {
     width: 1270px;
     height: 625px;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+    position: relative;
+
 }
 
 .signupForm {
@@ -138,9 +142,11 @@ input[type="password"].input-error {
 }
 
 .close {
+    position: absolute;
+    top: 20px; 
+    right: 40px;
     font-size: 80px;
     cursor: pointer;
-    margin-left: 100%;
     background: linear-gradient(90deg, #e51726, #d4208c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
